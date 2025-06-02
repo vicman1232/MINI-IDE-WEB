@@ -130,4 +130,20 @@ Resultado: Desconocido ❓
 - Árbol sintáctico para código válido
 - Simulador de Máquina de Turing integrado
 - Interfaz moderna y responsive con Bootstrap
-- Tema oscuro para el editor (Monokai) 
+- Tema oscuro para el editor (Monokai)
+
+  ## Capturas de pantalla
+-Pantalla inicial 
+![Image Alt](https://github.com/vicman1232/MINI-IDE-WEB/blob/3248a73ebbdb55e0e59e23fa20140bfba0d1cd87/Captura%20de%20pantalla%202025-05-30%20162334.png) 
+-Análisis Lexico
+![Image Alt](https://github.com/vicman1232/MINI-IDE-WEB/blob/3248a73ebbdb55e0e59e23fa20140bfba0d1cd87/Captura%20de%20pantalla%202025-05-30%20162502.png) 
+-Análisis Sintactico 
+![Image Alt](https://github.com/vicman1232/MINI-IDE-WEB/blob/3248a73ebbdb55e0e59e23fa20140bfba0d1cd87/Captura%20de%20pantalla%202025-05-30%20162530.png)
+-Maquina de Turing
+![Image Alt](https://github.com/vicman1232/MINI-IDE-WEB/blob/3248a73ebbdb55e0e59e23fa20140bfba0d1cd87/Captura%20de%20pantalla%202025-05-30%20162635.png)
+-Error Análisis Lexico
+![Image Alt](https://github.com/vicman1232/MINI-IDE-WEB/blob/3248a73ebbdb55e0e59e23fa20140bfba0d1cd87/Captura%20de%20pantalla%202025-05-30%20162814.png)
+-Eror Análisis Sintactico 
+![Image Alt](https://github.com/vicman1232/MINI-IDE-WEB/blob/3248a73ebbdb55e0e59e23fa20140bfba0d1cd87/Captura%20de%20pantalla%202025-05-30%20162904.png)
+-Eror Maquina de Turing
+![Image Alt](https://github.com/vicman1232/MINI-IDE-WEB/blob/3248a73ebbdb55e0e59e23fa20140bfba0d1cd87/Captura%20de%20pantalla%202025-05-30%20162938.png)
