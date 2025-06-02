@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini IDE Web - Compiladores</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CodeMirror -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Mini IDE Web</a>
+            <div class="student-info text-white">
+                <span>{{ student_info.name }}</span> |
+                <span>{{ student_info.professor }}</span> |
+                <span>{{ student_info.semester }}</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Editor y Salida -->
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Editor</h5>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="analizarLexico()">
+                                <i class="bi bi-search"></i> Análisis Léxico
+                            </button>
+                            <button class="btn btn-success" onclick="analizarSintactico()">
+                                <i class="bi bi-diagram-3"></i> Análisis Sintáctico
+                            </button>
+                            <button class="btn btn-info text-white" onclick="simularTuring()">
+                                <i class="bi bi-cpu"></i> Máquina de Turing
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <textarea id="editor"></textarea>
+                    </div>
+                </div>
+
+                <!-- Ejemplos -->
+                <div class="row">
+                    <!-- Ejemplos Válidos -->
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0">
+                                    <i class="bi bi-check-circle"></i> Ejemplos Válidos
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">Ejemplos para Análisis Léxico, Sintáctico y Máquina de Turing</h6>
+                                <pre class="example-code bg-light p-3 rounded"><code>// Variables y asignaciones
+x = 42
+nombre = "Juan"
+resultado = 10 + 5 * 3
+
+// Expresiones complejas
+suma = a + b
+promedio = (nota1 + nota2) / 2
+
+// Ejemplos Máquina de Turing
+aaa     // → Humano
+aaab    // → Robot
+ab      // → Robot
+a       // → Humano
+</code></pre>
+                                <button class="btn btn-sm btn-outline-success mt-2" onclick="cargarEjemplo('valido')">
+                                    <i class="bi bi-clipboard"></i> Copiar al Editor
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ejemplos Inválidos -->
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="mb-0">
+                                    <i class="bi bi-exclamation-circle"></i> Ejemplos Inválidos
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">Errores Comunes en cada Tipo de Análisis</h6>
+                                <pre class="example-code bg-light p-3 rounded"><code>// Error: Identificador inválido
+42x = 10
+
+// Error: Falta identificador
+= 5
+
+// Error: Cadena sin cerrar
+mensaje = "Hola mundo
+
+// Error: Operador inválido
+x $= 20
+
+// Errores Máquina de Turing
+abc     // Caracteres inválidos
+123     // Caracteres inválidos
+        // Cadena vacía
+áéíóú   // Caracteres inválidos</code></pre>
+                                <button class="btn btn-sm btn-outline-danger mt-2" onclick="cargarEjemplo('invalido')">
+                                    <i class="bi bi-clipboard"></i> Copiar al Editor
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Panel de Salida -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">
+                            <i class="bi bi-terminal"></i> Salida
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <pre id="salida" class="bg-dark text-light p-3 rounded"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
